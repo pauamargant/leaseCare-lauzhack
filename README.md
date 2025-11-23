@@ -122,7 +122,9 @@ User Upload → Document Parser → AI Analysis → Review Stage
 
 - Node.js 18+ 
 - npm or yarn
-- OpenRouter API key (optional - app works with fallback responses)
+- Together AI API key (required for AI features)
+- Firebase account (for authentication and storage)
+- OpenJustice API key (for law explanations)
 
 ## 🔧 Installation
 
@@ -139,22 +141,35 @@ npm install
 
 3. **Configure Environment Variables**
 
-Copy the `.env.template` file to `.env`:
+Copy the `.env.example` file to `.env`:
 ```sh
-cp .env.template .env
+cp .env.example .env
 ```
 
-Edit `.env` and add your OpenRouter API key:
+Edit `.env` and add your API keys:
 ```env
-VITE_OPENROUTER_API_KEY=your_api_key_here
-VITE_OPENROUTER_MODEL=anthropic/claude-3.5-sonnet
-VITE_OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
+# Together AI (required)
+VITE_TOGETHER_API_KEY=tgp_v1_your_key_here
+VITE_TOGETHER_BASE_URL=https://api.together.xyz/v1
+VITE_TOGETHER_CHAT_MODEL=meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8
+VITE_TOGETHER_VISION_MODEL=meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8
+
+# Firebase (required)
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+
+# OpenJustice (required for law explanations)
+VITE_OPENJUSTICE_API_KEY=nap_your_key_here
 ```
 
-**Note**: The application will work without an API key using intelligent fallback responses. To get an OpenRouter API key:
-1. Visit [OpenRouter.ai](https://openrouter.ai)
-2. Sign up for an account
-3. Generate an API key from your dashboard
+**Getting API Keys**:
+- **Together AI**: Visit [together.ai](https://together.ai) → Sign up → API Keys
+- **Firebase**: Visit [console.firebase.google.com](https://console.firebase.google.com) → Create project → Project settings
+- **OpenJustice**: Visit [openjustice.ai](https://openjustice.ai) → Sign up → API Keys
 
 ## 🚀 Development
 
@@ -587,23 +602,24 @@ leasecare-vue/
 7. **Checkout**: Compare photos to detect new damages
 8. **Defense**: Generate defense letters for unfair claims
 
-## 🔌 OpenRouter Integration
+## 🤖 Together AI Integration
 
-The application uses OpenRouter to access various AI models. Key features:
+The application uses Together AI's Llama-4-Maverick model for all AI features:
 
-- **Chat Completions**: For the Live Lease assistant
-- **Document Analysis**: For lease agreement review
-- **Image Analysis**: For damage detection (simulated in current version)
-- **Fallback System**: Intelligent keyword-based responses when API is unavailable
+- **Chat Completions**: Live Lease assistant with context awareness
+- **Document Analysis**: Lease agreement parsing and risk assessment
+- **Vision Analysis**: Damage detection with before/after photo comparison
+- **Streaming Responses**: Real-time AI output for better UX
 
-### Supported Models
+### Model Configuration
 
-Default: `anthropic/claude-3.5-sonnet`
+Default: `meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8`
 
-You can change the model in `.env`:
-```env
-VITE_OPENROUTER_MODEL=openai/gpt-4-turbo
-```
+This model provides:
+- Fast inference (FP8 quantization)
+- High accuracy for legal text analysis
+- Vision capabilities for image comparison
+- Cost-effective API usage
 
 ## 🌍 Swiss Cantons Supported
 
