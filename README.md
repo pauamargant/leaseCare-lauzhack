@@ -4,7 +4,7 @@ A comprehensive tenant protection platform leveraging multi-agent AI systems, co
 
 ## 🌐 Live Demo
 
-**Deployed on Vercel**: [Coming Soon]
+**Deployed on Vercel**: https://leasecare.chlc.top/
 
 ---
 
