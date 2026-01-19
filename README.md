@@ -1,3 +1,11 @@
+---
+> **🏆 Lauzhack 2025 Project**
+> 
+> This project was developed for **Lauzhack 2025** and achieved:
+> - **Overall Finalist** 🎯
+> - **1st Prize - AXA Challenge** 🥇
+---
+
 # LeaseCare Switzerland - AI-Powered Tenant Protection Platform
 
 A comprehensive tenant protection platform leveraging multi-agent AI systems, computer vision, and Swiss legal expertise to help tenants manage lease agreements, document property conditions, and defend against unfair damage claims.
