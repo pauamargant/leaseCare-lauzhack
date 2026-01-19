@@ -2,6 +2,14 @@
 
 A comprehensive tenant protection platform leveraging multi-agent AI systems, computer vision, and Swiss legal expertise to help tenants manage lease agreements, document property conditions, and defend against unfair damage claims.
 
+## 🏆 Lauzhack Project
+
+> 🥇 **1st Prize Winner - AXA Challenge**
+>
+> Developed during **LauZHack 2025** in a single weekend.
+
+---
+
 ## 🌐 Live Demo
 
 **Deployed on Vercel**: https://leasecare.chlc.top/
